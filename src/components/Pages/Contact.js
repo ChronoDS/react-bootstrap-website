@@ -1,4 +1,18 @@
 import React, {Component} from 'react'
+import Field from "../Common/Field";
+
+const fields = {
+    sections: [
+        [
+            {name: 'name', elementName: 'input', type: 'text', placeholder: 'Your Name'},
+            {name: 'email', elementName: 'input', type: 'email', placeholder: 'Your Email'},
+            {name: 'phone', elementName: 'input', type: 'text', placeholder: 'Your Phone'}
+        ],
+        [
+            {name: 'message', elementName: 'textarea', type: 'text', placeholder: 'Your Message'}
+        ]
+    ]
+}
 
 class Contact extends Component {
     constructor(props){
@@ -11,8 +25,8 @@ class Contact extends Component {
         }
     }
 
-    handleSubmit = event => {
-
+    submitForm = event => {
+        alert(`Form Submitted ${this.state.name}. Thank you!`);
     }
 
     render() {
@@ -27,69 +41,32 @@ class Contact extends Component {
                     </div>
                     <div className="row">
                         <div className="col-lg-12">
-                            <form id="contactForm" name="sentMessage" noValidate="novalidate">
+                            <form name="sentMessage" noValidate="novalidate" onSubmit={event => this.submitForm(event)}>
                                 <div className="row">
-                                    <div className="col-md-6">
-                                        <div className="form-group">
-                                            <input className="form-control"
-                                                   id="name"
-                                                   type="text"
-                                                   placeholder="Your Name *"
-                                                   required="required"
-                                                   data-validation-required-message="Please enter your name."
-                                                   value={this.state.name}
-                                                   onChange={event => this.setState({name: event.target.value})}
-                                            />
-                                            <p className="help-block text-danger" />
-                                        </div>
-                                        <div className="form-group">
-                                            <input className="form-control"
-                                                   id="email"
-                                                   type="email"
-                                                   placeholder="Your Email *"
-                                                   required="required"
-                                                   data-validation-required-message="Please enter your email address."
-                                                   value={this.state.email}
-                                                   onChange={event => this.setState({email: event.target.value})}
-                                            />
-                                            <p className="help-block text-danger" />
-                                        </div>
-                                        <div className="form-group">
-                                            <input className="form-control"
-                                                   id="phone"
-                                                   type="tel"
-                                                   placeholder="Your Phone *"
-                                                   required="required"
-                                                   data-validation-required-message="Please enter your phone number."
-                                                   value={this.state.phone}
-                                                   onChange={event => this.setState({phone: event.target.value})}
-                                            />
-                                            <p className="help-block text-danger" />
-                                        </div>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <div className="form-group">
-                                            <textarea className="form-control"
-                                                      id="message"
-                                                      placeholder="Your Message *"
-                                                      required="required"
-                                                      data-validation-required-message="Please enter a message."
-                                                      value={this.state.message}
-                                                      onChange={event => this.setState({message: event.target.value})}
-                                            />
-                                            <p className="help-block text-danger" />
-                                        </div>
-                                    </div>
+
+                                    {fields.sections.map((section, sectionIndex) => {
+                                        return (
+                                            <div className={'col-md-6'} key={sectionIndex}>
+                                                {section.map((field, index) => {
+                                                    return <Field
+                                                        {...field}
+                                                        key={field.name+index}
+                                                        value={this.state[field.name]}
+                                                        onChange={event => this.setState({
+                                                            [field.name]: event.target.value
+                                                        })}
+                                                    />
+                                                })}
+                                            </div>
+                                        )
+                                    })}
                                     <div className="clearfix" />
                                     <div className="col-lg-12 text-center">
                                         <div id="success" />
                                         <button id="sendMessageButton"
                                                 className="btn btn-primary btn-xl text-uppercase"
                                                 type="submit"
-                                                onClick={event => this.handleSubmit}
-                                        >
-                                            Send Message
-                                        </button>
+                                        >Send Message</button>
                                     </div>
                                 </div>
                             </form>
