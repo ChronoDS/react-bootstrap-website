@@ -1,8 +1,9 @@
 {
-  "name": "website-with-bootstrap-fs-tut",
+  "name": "bootstraped-react-website",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "formik": "^1.5.8",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router-dom": "^5.0.1",
