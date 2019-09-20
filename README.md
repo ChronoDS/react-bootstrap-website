@@ -1,5 +1,7 @@
 ### full-stack website project using ReactJS, Redux, NodeJS, LoopbackJS and Material-UI.
 
+####  React website with React-routing, forms with Formik and form validation using Yup among others.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
