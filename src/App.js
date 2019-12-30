@@ -1,11 +1,12 @@
 import React from 'react';
 import './App.css';
 import PageWrapper from "./components/PageWrapper";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 // Pages
 import Home from "./components/Pages/Home";
 import About from "./components/Pages/About";
 import Contact from "./components/Pages/Contact";
+import Team from "./components/Common/Team";
 
 
 function App() {
@@ -24,6 +25,10 @@ function App() {
                 <Route
                     path={'/contact'}
                     component={Contact}
+                />
+                <Route
+                    path={'/team'}
+                    component={Team}
                 />
             </PageWrapper>
         </Router>

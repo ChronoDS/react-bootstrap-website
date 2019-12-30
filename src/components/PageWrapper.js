@@ -7,7 +7,6 @@ class PageWrapper extends React.Component {
 
         return (
             <div>
-                {/* Navigation*/}
                 <nav className="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
                     <div className="container">
                         <Link className="navbar-brand js-scroll-trigger" to="/">Start Bootstrap</Link>

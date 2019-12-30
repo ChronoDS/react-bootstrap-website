@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Link} from "react-router-dom";
 
 class TeamMember extends Component {
 
@@ -11,19 +12,19 @@ class TeamMember extends Component {
                         <p className="text-muted">{this.props.title}</p>
                         <ul className="list-inline social-buttons">
                             <li className="list-inline-item">
-                                <a href="#">
+                                <Link to="/">
                                     <i className="fab fa-twitter" />
-                                </a>
+                                </Link>
                             </li>
                             <li className="list-inline-item">
-                                <a href="#">
+                                <Link to="/">
                                     <i className="fab fa-facebook-f" />
-                                </a>
+                                </Link>
                             </li>
                             <li className="list-inline-item">
-                                <a href="#">
+                                <Link to="/">
                                     <i className="fab fa-linkedin-in" />
-                                </a>
+                                </Link>
                             </li>
                         </ul>
                 </div>
